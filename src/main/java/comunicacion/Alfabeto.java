@@ -14,22 +14,27 @@ public class Alfabeto extends Pictograma {
 	
 	// metodos  de la  super clase abstracta
 	
+	@Override
+	
 	public String interpretacion() {
 		return interpretacion;
 	}
-	public String toString() {
-		String out = "";
-		for(int i = 0; i < letras.length; i++) {
-			if(i != (letras.length-1)) {
-				out += letras[i] + ", ";
-			}
-		}
-		return out;	
-	}
-	// metodo propio de  la clase
 	
 	public int cantidadLetras() {
 		return this.letras.length;
+	}
+	
+	@Override 
+	
+	public String toString() {
+		String out = "";
+		for(int i = 0; i < letras.length; i++) {
+			out += letras[i];
+			if(i != (letras.length-1)) {
+				out += ", ";
+			}
+		}
+		return out;	
 	}
 	
 	//Getters and  setters

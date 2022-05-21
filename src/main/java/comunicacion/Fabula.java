@@ -5,16 +5,13 @@ public class Fabula extends Escrito {
 	protected String interpretacion;
 	
 	// constructor
+	
 	public Fabula(String origen, String titulo, String autor, int paginas, String ensenanza, String interpretacion) {
 		super(origen, titulo, autor, paginas);
 		this.ensenanza = ensenanza;
 		this.interpretacion = interpretacion;
 	}
 
-
-	public String interpretacion() {
-			return interpretacion;
-	}
 	// getters  and  setters
 	
 	public String getEnsenanza() {
@@ -28,21 +25,28 @@ public class Fabula extends Escrito {
 	public String getInterpretacion() {
 		return interpretacion;
 	}
-	// Metodos de la clase abstracta heredada
 	
-	public int palabrasTotales(int palabrasPagina) {
-		return 1*getPaginas();
-		}
 	public void setInterpretacion(String interpretacion) {
 		this.interpretacion = interpretacion;
 	}
+	// Metodos de la clase abstracta heredada
+	
+	@Override
+	
+	public int palabrasTotales(int palabrasPagina) {
+		return super.getPaginas()*palabrasPagina;
+		}
+	
+	@Override
+	public String interpretacion() {
+		return interpretacion;
+}
+	@Override
 	
 	public String toString() {
-		return getOrigen() + "\n" +
-				getTitulo() + "\n" +
-				getAutor() + "\n" +
-				getPaginas() + "\n" +
-				getEnsenanza();
+		String res =  this.resumen() + "\n";
+		res += this.ensenanza;
+		return res;
 				
 				
 	}

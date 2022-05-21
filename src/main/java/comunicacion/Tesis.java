@@ -2,13 +2,14 @@ package comunicacion;
 
 
 public class Tesis extends Escrito{
-	protected String idea;
-	protected String[] argumentos;
-	String conclusion;
-	String referencias;
-	String interpretacion;
-	
+	private String idea;
+	private String argumentos[];
+	private String conclusion;
+	private String referencias;
+	private String interpretacion;
+
 	// constructor
+
 	public Tesis(String origen, String titulo, String autor, int paginas, String idea, String[] argumentos, String conclusion,
 			String referencias, String interpretacion) {
 		super(origen, titulo, autor, paginas);
@@ -19,69 +20,72 @@ public class Tesis extends Escrito{
 		this.interpretacion = interpretacion;
 	}
 
-		// metodos de la  clase padre
-		
-		public int palabrasTotales(int palabrasPagina) {
-				return 5*getPaginas();
-		}
-		public String interpretacion() {
-				return  interpretacion;
-		}
-		public String toString() {
-				return getOrigen() + "\n" +
-						getTitulo() + "\n" +
-						getAutor() + "\n" +
-						getPaginas() + "\n" +
-						getIdea() + "\n"+
-						cantidadArgumentos() + "\n" +
-						getConclusion() + "\n"+
-						getReferencias();
-			
-		}
-		
-		// getters  and setters
+	// metodos de la  clase padre
 
-		public String getIdea() {
-			return idea;
-		}
+	@Override
+	
+	public int palabrasTotales(int palabrasPagina) {
+		return 5*super.getPaginas()*palabrasPagina;
+	}
+	
+	@Override
+	
+	public String interpretacion() {
+		return  interpretacion;
+	}
+	public String toString() {
+		String res =  this.resumen() + "\n";
+		res += this.idea + "\n";
+		res += this.argumentos.length + "\n";
+		res += this.conclusion + "\n";
+		res += this.referencias;
+		return res;
 
-		public void setIdea(String idea) {
-			this.idea = idea;
-		}
+	}
 
-		public String[] getArgumentos() {
-			return this.argumentos;
-		}
-		public int cantidadArgumentos() {
-			return this.argumentos.length;
-		}
-		public void setArgumentos(String[] argumentos) {
-			this.argumentos = argumentos;
-		}
+	// getters  and setters
 
-		public String getConclusion() {
-			return conclusion;
-		}
+	public String getIdea() {
+		return idea;
+	}
 
-		public void setConclusion(String conclusion) {
-			this.conclusion = conclusion;
-		}
+	public void setIdea(String idea) {
+		this.idea = idea;
+	}
 
-		public String getReferencias() {
-			return referencias;
-		}
+	public String[] getArgumentos() {
+		return this.argumentos;
+	}
+	public int cantidadArgumentos() {
+		return this.argumentos.length;
+	}
+	public void setArgumentos(String[] argumentos) {
+		this.argumentos = argumentos;
+	}
 
-		public void setReferencias(String referencias) {
-			this.referencias = referencias;
-		}
+	public String getConclusion() {
+		return conclusion;
+	}
 
-		public String getInterpretacion() {
-			return interpretacion;
-		}
+	public void setConclusion(String conclusion) {
+		this.conclusion = conclusion;
+	}
 
-		public void setInterpretacion(String interpretacion) {
-			this.interpretacion = interpretacion;
-		}
+	public String getReferencias() {
+		return referencias;
+	}
 
-		
+	public void setReferencias(String referencias) {
+		this.referencias = referencias;
+	}
+
+	public String getInterpretacion() {
+		return interpretacion;
+	}
+
+	public void setInterpretacion(String interpretacion) {
+		this.interpretacion = interpretacion;
+	}
+
+
 }

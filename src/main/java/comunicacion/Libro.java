@@ -53,21 +53,24 @@ public class Libro extends  Escrito{
 
 	//metodos de la  clase padre
 	
+	@Override
+	
 	public int palabrasTotales(int palabrasPagina) {
-			return 2*getPaginas();
+			return super.getPaginas()*palabrasPagina*2;
 	}
-
+	@Override
+	
 	public String interpretacion() {
 			return interpretacion;
 	}
+	@Override
+	
 	public String toString() {
-			return  getOrigen() + "\n" +
-					getTitulo() + "\n" +
-					getAutor() + "\n" +
-					getPaginas() + "\n" +
-					getCo_autor() + "\n" +
-					getEditorial() + "\n" +
-					getEdicion();
+		String res =  this.resumen() + "\n";
+		res += this.co_autor + "\n";
+		res += this.editorial + "\n";
+		res += this.edicion;
+		return res;
 		
 	}
 

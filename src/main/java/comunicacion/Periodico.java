@@ -1,12 +1,12 @@
 package comunicacion;
 
 public class Periodico extends Escrito {
-	String  fecha;
-	String  primicia;
-	String interpretacion;
-	
+	private String  fecha;
+	private String  primicia;
+	private String interpretacion;
+
 	// constructor 
-	
+
 	public Periodico(String origen, String titulo, String autor, int paginas, String fecha, String primicia,
 			String interpretacion) {
 		super(origen, titulo, autor, paginas);
@@ -14,50 +14,52 @@ public class Periodico extends Escrito {
 		this.primicia = primicia;
 		this.interpretacion = interpretacion;
 	}
-	
+
 	// metodos de la  clase padre
+
+	@Override
+	public int palabrasTotales(int palabrasPagina) {
+		return super.getPaginas()*palabrasPagina*10;
+	}
 	
-		public int palabrasTotales(int palabrasPagina) {
-				return 10*getPaginas();
-		}
+	@Override
+	
+	public String interpretacion() {
+		return interpretacion;
+	}
+	
+	public String toString() {
+		String res =  this.resumen() + "\n";
+		res += this.fecha + "\n";
+		res += this.primicia;
+		return res;
 
-		public String interpretacion() {
-				return interpretacion;
-		}
-		public String toString() {
-				return getOrigen() + "\n" +
-						getTitulo() + "\n" +
-						getAutor() + "\n" +
-						getPaginas() + "\n" +
-						getFecha() + "\n" +
-						getPrimicia();
-			
-		}
+	}
 
-		// getters  and  setters
-		
-		public String getFecha() {
-			return fecha;
-		}
+	// getters  and  setters
 
-		public void setFecha(String fecha) {
-			this.fecha = fecha;
-		}
+	public String getFecha() {
+		return fecha;
+	}
 
-		public String getPrimicia() {
-			return primicia;
-		}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
 
-		public void setPrimicia(String primicia) {
-			this.primicia = primicia;
-		}
+	public String getPrimicia() {
+		return primicia;
+	}
 
-		public String getInterpretacion() {
-			return interpretacion;
-		}
+	public void setPrimicia(String primicia) {
+		this.primicia = primicia;
+	}
 
-		public void setInterpretacion(String interpretacion) {
-			this.interpretacion = interpretacion;
-		}
+	public String getInterpretacion() {
+		return interpretacion;
+	}
+
+	public void setInterpretacion(String interpretacion) {
+		this.interpretacion = interpretacion;
+	}
 
 }
